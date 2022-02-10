@@ -1,0 +1,25 @@
+shell code:
+npm init -y && npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH
+
+
+index.js:
+const express = require("express");
+const app = express();
+
+app.listen(3000, () => {
+  console.log("sike");
+})
+
+app.get("/", (req, res) => {
+  res.send("sike");
+})
+
+const Discord = require("discord.js")
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
+
+
+client.on("messageCreate", message => {
+  if (message.content === "hello") {
+    message.reply("hi")
+  }
+})
